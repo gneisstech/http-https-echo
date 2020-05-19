@@ -1,5 +1,5 @@
 apiVersion: v2
-name: 'http-https-echo'
+name: 'cf-http-https-echo'
 description: Connected Facilities http echo debug utility
 keywords:
   - 'connected-facilities'
