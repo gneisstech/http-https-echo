@@ -274,7 +274,7 @@ function build_and_push_helm_chart () {
     chartPackage="${IMAGENAME}-$(remove_release_prefix <<< "${blessed_release_tag}").tgz"
     rm -f "${chartDir}/Chart.lock"
     helm dependency build "${chartDir}"
-    git add "${chartDir}/Chart.Lock"
+    git add "${chartDir}/Chart.lock"
     helm package "${chartDir}"
     az acr helm push -n "$(origin_repository)" "${chartPackage}"
     rm "${chartPackage}"
