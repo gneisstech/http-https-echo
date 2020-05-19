@@ -3,7 +3,7 @@ name: 'http-https-echo'
 description: Connected Facilities http echo debug utility
 keywords:
   - 'connected-facilities'
-  - 'http-echo-debug-front-end'
+  - 'cf-http-echo-debug'
 type: application
 home: ''  # The URL of this projects home page (optional)
 sources: []  # A list of URLs to source code for this project (optional)
