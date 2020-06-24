@@ -1,6 +1,6 @@
 apiVersion: v2
 name: 'cf-http-https-echo'
-description: Connected Facilities http echo debug utility
+description: 'CF: http echo debug utility'
 keywords:
   - 'connected-facilities'
   - 'cf-http-echo-debug'
@@ -16,8 +16,8 @@ deprecated: false
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application.
-appVersion: 'r0.5.0-dev'
+appVersion: 'r1.0.3-dev'
 
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
-version: 0.5.0-dev
+version: 1.0.3-dev
