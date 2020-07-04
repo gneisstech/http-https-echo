@@ -1,5 +1,15 @@
-// require logger.js
-const {echoLogger} = require('./logger');
+const { createLogger, format, transports, config } = require('winston');
+
+const echoLogger = createLogger({
+    level: 'info',
+    exitOnError: false,
+    format: format.json(),
+    transports: [
+        new transports.Console()
+    ]
+});
+
+module.exports = echoLogger
 
 var express = require('express')
 const morgan = require('morgan');
@@ -54,7 +64,7 @@ app.all('*', (req, res) => {
         }
     }
     res.json(echo);
-    echoLogger.log(JSON.stringify(echo));
+    echoLogger.log("info", JSON.stringify(echo));
 });
 
 const sslOpts = {
