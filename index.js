@@ -12,7 +12,7 @@ const echoLogger = createLogger({
 module.exports = echoLogger
 
 var express = require('express')
-const morgan = require('morgan');
+//const morgan = require('morgan');
 var http = require('http')
 var https = require('https')
 var app = express()
@@ -23,7 +23,7 @@ var concat = require('concat-stream');
 app.set('json spaces', 2);
 app.set('trust proxy', ['loopback', 'linklocal', 'uniquelocal']);
 
-app.use(morgan('combined'));
+//app.use(morgan('combined'));
 
 app.use(function(req, res, next){
     req.pipe(concat(function(data){
@@ -67,8 +67,7 @@ app.all('*', (req, res) => {
     echoLogger.log(
         "info",
         "echo-request",
-        {"app-version":process.env.APP_VERSION},
-        echo
+        {"app-version":process.env.APP_VERSION, "echo": echo}
     );
 });
 
