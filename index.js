@@ -1,3 +1,6 @@
+// require logger.js
+const {echoLogger} = require('./logger');
+
 var express = require('express')
 const morgan = require('morgan');
 var http = require('http')
@@ -51,7 +54,7 @@ app.all('*', (req, res) => {
         }
     }
     res.json(echo);
-    console.log(JSON.stringify(echo));
+    echoLogger.log(JSON.stringify(echo));
 });
 
 const sslOpts = {
@@ -66,9 +69,9 @@ let calledClose = false;
 
 process.on('exit', function () {
     if (calledClose) return;
-    console.log('Got exit event. Trying to stop Express server.');
+    echoLogger.log('Got exit event. Trying to stop Express server.');
     server.close(function() {
-        console.log("Express server closed");
+        echoLogger.log("Express server closed");
     });
 });
 
@@ -76,11 +79,11 @@ process.on('SIGINT', shutDown);
 process.on('SIGTERM', shutDown);
 
 function shutDown(){
-    console.log('Got a kill signal. Trying to exit gracefully.');
+    echoLogger.log('Got a kill signal. Trying to exit gracefully.');
     calledClose = true;
     httpServer.close(function() {
         httpsServer.close(function() {
-            console.log("HTTP and HTTPS servers closed. Asking process to exit.");
+            echoLogger.log("HTTP and HTTPS servers closed. Asking process to exit.");
             process.exit()
         });
 
