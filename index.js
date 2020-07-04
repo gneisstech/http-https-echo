@@ -64,7 +64,12 @@ app.all('*', (req, res) => {
         }
     }
     res.json(echo);
-    echoLogger.log("info", "echo-request", echo);
+    echoLogger.log(
+        "info",
+        "echo-request",
+        {"app-version":process.env.APP_VERSION},
+        echo
+    );
 });
 
 const sslOpts = {
