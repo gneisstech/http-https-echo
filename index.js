@@ -51,8 +51,7 @@ app.all('*', (req, res) => {
         }
     }
     res.json(echo);
-    console.log('-----------------')
-    console.log(echo);
+    console.log(JSON.stringify(echo));
 });
 
 const sslOpts = {
