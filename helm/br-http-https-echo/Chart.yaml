@@ -1,9 +1,9 @@
 apiVersion: v2
-name: 'cf-http-https-echo'
+name: 'br-http-https-echo'
 description: 'CF: http echo debug utility'
 keywords:
-  - 'connected-facilities'
-  - 'cf-http-echo-debug'
+  - 'bedrock'
+  - 'br-http-echo-debug'
 type: application
 home: ''  # The URL of this projects home page (optional)
 sources: []  # A list of URLs to source code for this project (optional)

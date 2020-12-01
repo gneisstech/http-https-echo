@@ -4,15 +4,15 @@
 # https://aka.ms/yaml
 
 trigger:
-  - 'master-bytelight'
+  - 'master-bedrock'
   - 'azure-pipelines'
 
 pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  imageName: 'cf-http-https-echo'
-  tag: 'connected-facilities'
+  imageName: 'br-http-https-echo'
+  tag: 'bedrock'
   allow_cve_high: '2'  # @@TODO strive for zero
   allow_cve_medium: '2'
 
@@ -31,7 +31,7 @@ steps:
       scriptPath: './ci/recipes/sast.sh'
   - task: 'Docker@2'
     condition: and(succeeded(), ne(variables['Build.SourceVersionMessage'], 'automated update of semver on git commit'))
-    displayName: 'Build and push cf-http-https-echo docker container'
+    displayName: 'Build and push br-http-https-echo docker container'
     inputs:
       repository: '$(imageName)'
       command: 'buildAndPush'

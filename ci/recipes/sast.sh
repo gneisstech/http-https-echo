@@ -13,7 +13,7 @@ set -o pipefail
 # Environment Variables
 # ---------------------
 declare -rx BUILD_REPOSITORY_LOCALPATH="${BUILD_REPOSITORY_LOCALPATH:-.}"
-declare -rx IMAGENAME="${IMAGENAME:-cf-http-https-echo}"
+declare -rx IMAGENAME="${IMAGENAME:-br-http-https-echo}"
 
 # Arguments
 # ---------------------

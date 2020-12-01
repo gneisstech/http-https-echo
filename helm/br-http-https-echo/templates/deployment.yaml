@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "cf-http-https-echo.fullname" . }}
+  name: {{ include "br-http-https-echo.fullname" . }}
   labels:
-    {{- include "cf-http-https-echo.labels" . | nindent 4 }}
+    {{- include "br-http-https-echo.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "cf-http-https-echo.selectorLabels" . | nindent 6 }}
+      {{- include "br-http-https-echo.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        {{- include "cf-http-https-echo.selectorLabels" . | nindent 8 }}
+        {{- include "br-http-https-echo.selectorLabels" . | nindent 8 }}
     spec:
     {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
     {{- end }}
-      serviceAccountName: {{ include "cf-http-https-echo.serviceAccountName" . }}
+      serviceAccountName: {{ include "br-http-https-echo.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:

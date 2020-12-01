@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: 'cfdevregistry.azurecr.io/cf-http-https-echo'
+  repository: 'cfdevregistry.azurecr.io/br-http-https-echo'
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
